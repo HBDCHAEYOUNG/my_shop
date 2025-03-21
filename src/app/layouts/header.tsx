@@ -7,13 +7,15 @@ import { useAuthStore } from "@store/auth-store";
 import { useDarkStore } from "@store/dark-store";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { postKakaoLogout } from "src/shared/services/\buse-kakao-login";
 
 export function Header() {
   const { darkMode, toggleDarkMode } = useDarkStore();
-  const { isLogin, setIsLogout, nickname } = useAuthStore();
+  const { isLogin, setIsLogout, nickname, token } = useAuthStore();
 
   const handleLogin = () => {
     if (isLogin) {
+      postKakaoLogout(token);
       setIsLogout();
     } else {
       const REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;

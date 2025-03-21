@@ -21,7 +21,7 @@ export function Auth() {
           const userInfo = await getKakaoUserInfo(token);
           console.log(userInfo);
 
-          setIsLogin(userInfo.id, userInfo.properties.nickname);
+          setIsLogin(token, userInfo.id, userInfo.properties.nickname);
           router("/");
         })
         .catch((error) => {

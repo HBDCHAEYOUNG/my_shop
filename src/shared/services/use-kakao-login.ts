@@ -45,3 +45,17 @@ export const getKakaoUserInfo = async (token: string) => {
     console.error("에러 발생:", error);
   }
 };
+
+export const postKakaoLogout = async (token: string) => {
+  const response = await fetch("https://kapi.kakao.com/v1/user/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) throw new Error("로그아웃 실패!");
+
+  return response;
+};
