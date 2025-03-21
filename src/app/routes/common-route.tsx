@@ -1,6 +1,7 @@
 import { Home } from "src/pages/ui/home";
 import { CommonLayout } from "../layouts/common-layout";
 import { ErrorLayout } from "@app/layouts/error-layout";
+import { Auth } from "@pages/ui/auth";
 
 export const CommonRoute = () => {
   return {
@@ -11,6 +12,10 @@ export const CommonRoute = () => {
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/auth",
+        element: <Auth />,
       },
     ],
   };

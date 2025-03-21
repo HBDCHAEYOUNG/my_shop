@@ -1,22 +1,28 @@
+import CartIcon from "@icons/box.svg?react";
+import MoonIcon from "@icons/moon.svg?react";
+import PencilIcon from "@icons/pencil.svg?react";
+import ShopIcon from "@icons/shop.svg?react";
+import SunIcon from "@icons/sun.svg?react";
+import { useAuthStore } from "@store/auth-store";
 import { useDarkStore } from "@store/dark-store";
 import { useEffect } from "react";
-import ShopIcon from "@icons/shop.svg?react";
-import MoonIcon from "@icons/moon.svg?react";
-import SunIcon from "@icons/sun.svg?react";
-import CartIcon from "@icons/box.svg?react";
-import PencilIcon from "@icons/pencil.svg?react";
 import { Link } from "react-router-dom";
-import { useAuthStore } from "@store/auth-store";
 
 export function Header() {
   const { darkMode, toggleDarkMode } = useDarkStore();
-  const { isLogin, setIsLogin, setIsLogout, userId } = useAuthStore();
+  const { isLogin, setIsLogout, nickname } = useAuthStore();
 
   const handleLogin = () => {
     if (isLogin) {
       setIsLogout();
     } else {
-      setIsLogin("token", "Hyuk");
+      const REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
+      const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
+
+      console.log(REST_API_KEY);
+      const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}`;
+
+      window.location.href = KAKAO_AUTH_URL;
     }
   };
 
@@ -28,6 +34,7 @@ export function Header() {
     }
   }, [darkMode]);
 
+  console.log(isLogin);
   return (
     <div className="flex items-center common-pading gap-4 py-4 border-b">
       <Link to="/" className="flex-center gap-4 ">
@@ -59,7 +66,7 @@ export function Header() {
             <PencilIcon className="size-8" />
           </Link>
 
-          <p className="text-xl">{userId}</p>
+          <p className="text-xl">{nickname}</p>
         </nav>
       )}
 

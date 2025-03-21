@@ -2,25 +2,25 @@ import { create } from "zustand";
 
 interface Auth {
   isLogin: boolean;
-  token: string;
   userId: string;
+  nickname: string;
 }
 
 interface AuthProps extends Auth {
-  setIsLogin: (token: string, userId: string) => void;
+  setIsLogin: (userId: string, nickname: string) => void;
   setIsLogout: () => void;
 }
 
 const INIT = {
   isLogin: false,
-  token: "",
   userId: "",
+  nickname: "",
 };
 
 const useAuthStore = create<AuthProps>((set) => ({
   ...INIT,
-  setIsLogin: (token: string, userId: string) =>
-    set({ isLogin: true, token, userId }),
+  setIsLogin: (userId: string, nickname: string) =>
+    set({ isLogin: true, userId, nickname }),
   setIsLogout: () => set(INIT),
 }));
 
