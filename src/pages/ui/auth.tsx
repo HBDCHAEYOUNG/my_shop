@@ -5,6 +5,7 @@ import {
   getKakaoToken,
   getKakaoUserInfo,
 } from "src/shared/services/\buse-kakao-login";
+import LoadingIcon from "@icons/loading.svg?react";
 
 export function Auth() {
   const { setIsLogin } = useAuthStore();
@@ -30,5 +31,10 @@ export function Auth() {
     }
   }, [code]);
 
-  return <div>카카오 로그인</div>;
+  return (
+    <div className="flex-center">
+      카카오 로그인 중입니다.
+      <LoadingIcon className="mx-auto my-10 h-8 w-8 animate-spin" />
+    </div>
+  );
 }

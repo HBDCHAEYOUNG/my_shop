@@ -132,7 +132,10 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
-  .common-pading {
+  .common-padding {
     @apply px-4;
+  }
+  .common-padding-top {
+    @apply pt-4;
   }
 }

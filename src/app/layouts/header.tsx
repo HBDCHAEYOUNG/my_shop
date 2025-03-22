@@ -38,10 +38,12 @@ export function Header() {
 
   console.log(isLogin);
   return (
-    <div className="flex items-center common-pading gap-4 py-4 border-b">
+    <div className="flex items-center common-padding gap-4 py-4 border-b">
       <Link to="/" className="flex-center gap-4 ">
         <ShopIcon className="size-8" />
-        <span className="text-3xl  text-brand-primary">Cherry Shop</span>
+        <span className="hidden sm:flex text-3xl text-brand-primary">
+          Cherry Shop
+        </span>
       </Link>
 
       <button

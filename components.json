@@ -11,9 +11,9 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@lib",
-    "utils": "@lib/utils",
-    "ui": "@ui/_shardcn"
+    "components": "src/shared/lib",
+    "utils": "src/shared/lib/utils",
+    "ui": "src/shared/ui/_shardcn"
   },
   "iconLibrary": "lucide"
 }

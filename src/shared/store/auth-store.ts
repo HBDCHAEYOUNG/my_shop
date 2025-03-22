@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 interface Auth {
   token: string;
@@ -19,11 +20,18 @@ const INIT = {
   nickname: "",
 };
 
-const useAuthStore = create<AuthProps>((set) => ({
-  ...INIT,
-  setIsLogin: (token: string, userId: string, nickname: string) =>
-    set({ isLogin: true, token, userId, nickname }),
-  setIsLogout: () => set(INIT),
-}));
+const useAuthStore = create(
+  persist<AuthProps>(
+    (set) => ({
+      ...INIT,
+      setIsLogin: (token: string, userId: string, nickname: string) =>
+        set({ isLogin: true, token, userId, nickname }),
+      setIsLogout: () => set(INIT),
+    }),
+    {
+      name: "user",
+    }
+  )
+);
 
 export { useAuthStore };
