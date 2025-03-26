@@ -1,9 +1,12 @@
+import { useAuthStore } from "@store/auth-store";
 import { Skeleton } from "@ui/_shardcn/skeleton";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 export function Detail() {
   const { id } = useParams();
+
+  const { userId } = useAuthStore();
 
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
@@ -12,7 +15,25 @@ export function Detail() {
   const product = products[Number(id)];
 
   const onClickCart = () => {
-    // const user = JSON.parse(localStorage.getItem("user") || "[]");
+    const user = JSON.parse(localStorage.getItem("user") || "{}");
+    const cart = user.cart || {};
+    const myCart = cart[userId] || {};
+
+    if (!id) return;
+
+    if (id in myCart) {
+      myCart[id].count += 1;
+    } else {
+      myCart[id] = {
+        ...product,
+        count,
+      };
+    }
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...user, cart: { ...cart, [userId]: myCart } })
+    );
   };
 
   return (
@@ -32,7 +53,7 @@ export function Detail() {
         <p className="text-2xl">{product.price} won</p>
         <hr className="border-brand-primary" />
 
-        <div className="grid grid-cols-3">
+        <div className="flex justify-between">
           total
           <nav className="flex gap-2">
             <button
@@ -51,8 +72,9 @@ export function Detail() {
               +
             </button>
           </nav>
-          <p>{product.price * count} won</p>
+          <p className=" whitespace-nowrap ">{product.price * count} won</p>
         </div>
+
         <button
           onClick={onClickCart}
           className="rounded-sm h-10 hover:brightness-110 cursor-pointer bg-brand-primary text-brand-secondary"
