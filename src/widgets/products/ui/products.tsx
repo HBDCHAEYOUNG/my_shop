@@ -27,7 +27,7 @@ export function Products() {
           )}
           <span className="common-padding-top">{item.name}</span>
           <p className="font-semibold">
-            {Number(item.price).toLocaleString()} won
+            ₩ {Number(item.price).toLocaleString()}
           </p>
         </Link>
       ))}

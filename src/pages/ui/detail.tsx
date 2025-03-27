@@ -52,7 +52,7 @@ export function Detail() {
 
       <div className="sm:w-2/5 mt-20 flex flex-col gap-4">
         <span className="text-4xl">{product.name}</span>
-        <p className="text-2xl">{Number(product.price).toLocaleString()} won</p>
+        <p className="text-2xl">₩ {Number(product.price).toLocaleString()}</p>
         <hr className="border-brand-primary" />
 
         <div className="flex justify-between">
@@ -75,7 +75,7 @@ export function Detail() {
             </button>
           </nav>
           <p className=" whitespace-nowrap ">
-            {(Number(product.price) * count).toLocaleString()} won
+            ₩ {(Number(product.price) * count).toLocaleString()}
           </p>
         </div>
 
