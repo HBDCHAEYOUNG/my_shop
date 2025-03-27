@@ -7,7 +7,7 @@ import { useAuthStore } from "@store/auth-store";
 import { Link } from "react-router-dom";
 
 export function Header() {
-  const { isLogin, nickname } = useAuthStore();
+  const { isLogin, nickname, userId } = useAuthStore();
 
   return (
     <div className="flex items-center common-padding gap-4 py-4 border-b">
@@ -28,9 +28,11 @@ export function Header() {
         <nav className="flex-center gap-4">
           <CartButton />
 
-          <Link to="/product/new">
-            <PencilIcon className="size-8" />
-          </Link>
+          {userId === 3971318149 && (
+            <Link to="/product/new">
+              <PencilIcon className="size-8" />
+            </Link>
+          )}
 
           <p className="text-xl">{nickname}</p>
         </nav>

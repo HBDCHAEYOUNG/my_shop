@@ -1,5 +1,5 @@
 export const storage = {
-  setItem: (user: any, userId: string, myCart: any) => {
+  setItem: (user: any, userId: number, myCart: any) => {
     localStorage.setItem(
       "user",
       JSON.stringify({
