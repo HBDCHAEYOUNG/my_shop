@@ -65,7 +65,7 @@ const FormItem = (props: FormItemProps) => {
           {label && (
             <FormLabel
               className={cn(
-                "text-black data-[error=true]:text-brand-primary",
+                " data-[error=true]:text-brand-primary",
                 labelClassName
               )}
             >

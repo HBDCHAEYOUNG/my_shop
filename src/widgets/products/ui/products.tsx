@@ -26,7 +26,9 @@ export function Products() {
             <Skeleton className="w-full h-[calc(100%-64px)] aspect-square object-cover" />
           )}
           <span className="common-padding-top">{item.name}</span>
-          <p className="font-semibold">{item.price} won</p>
+          <p className="font-semibold">
+            {Number(item.price).toLocaleString()} won
+          </p>
         </Link>
       ))}
     </ul>

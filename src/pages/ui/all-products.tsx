@@ -1,4 +1,4 @@
-import { Products } from "@widgets/products/products";
+import { Products } from "@widgets/products/ui/products";
 
 export function AllProducts() {
   return (

@@ -13,7 +13,7 @@ export const InputText = React.forwardRef<
     <input
       type={type}
       className={cn(
-        "h-12 w-full rounded-sm border border-gray-300 px-3 focus:border-black focus:outline-none",
+        "h-12 w-full rounded-sm border border-gray-300 px-3  focus:outline-none",
         className
       )}
       ref={ref}

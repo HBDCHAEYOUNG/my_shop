@@ -1,4 +1,6 @@
+import { storage } from "@entities/cart/lib/storage";
 import { useAuthStore } from "@store/auth-store";
+import { useCartStore } from "@store/cart-store";
 import { Skeleton } from "@ui/_shardcn/skeleton";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -7,6 +9,7 @@ export function Detail() {
   const { id } = useParams();
 
   const { userId } = useAuthStore();
+  const { updateCart } = useCartStore();
 
   const [isLoading, setIsLoading] = useState(true);
   const [count, setCount] = useState(1);
@@ -16,8 +19,7 @@ export function Detail() {
 
   const onClickCart = () => {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const cart = user.cart || {};
-    const myCart = cart[userId] || {};
+    const myCart = user.cart?.[userId] || {};
 
     if (!id) return;
 
@@ -30,10 +32,8 @@ export function Detail() {
       };
     }
 
-    localStorage.setItem(
-      "user",
-      JSON.stringify({ ...user, cart: { ...cart, [userId]: myCart } })
-    );
+    storage.setItem(user, userId, myCart);
+    updateCart();
 
     alert("Added to cart");
   };
@@ -52,7 +52,7 @@ export function Detail() {
 
       <div className="sm:w-2/5 mt-20 flex flex-col gap-4">
         <span className="text-4xl">{product.name}</span>
-        <p className="text-2xl">{product.price} won</p>
+        <p className="text-2xl">{Number(product.price).toLocaleString()} won</p>
         <hr className="border-brand-primary" />
 
         <div className="flex justify-between">
@@ -74,7 +74,9 @@ export function Detail() {
               +
             </button>
           </nav>
-          <p className=" whitespace-nowrap ">{product.price * count} won</p>
+          <p className=" whitespace-nowrap ">
+            {(Number(product.price) * count).toLocaleString()} won
+          </p>
         </div>
 
         <button
