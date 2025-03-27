@@ -22,7 +22,13 @@ export function Auth() {
           const userInfo = await getKakaoUserInfo(token);
           console.log(userInfo);
 
-          setIsLogin(token, userInfo.id, userInfo.properties.nickname);
+          setIsLogin(token, userInfo, userInfo.properties.nickname);
+
+          const user = JSON.parse(localStorage.getItem("user") || "{}");
+          localStorage.setItem(
+            "user",
+            JSON.stringify({ ...user, cart: { [userInfo.id]: {} } })
+          );
           router("/");
         })
         .catch((error) => {

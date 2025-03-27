@@ -34,6 +34,8 @@ export function Detail() {
       "user",
       JSON.stringify({ ...user, cart: { ...cart, [userId]: myCart } })
     );
+
+    alert("Added to cart");
   };
 
   return (
@@ -77,7 +79,7 @@ export function Detail() {
 
         <button
           onClick={onClickCart}
-          className="rounded-sm h-10 hover:brightness-110 cursor-pointer bg-brand-primary text-brand-secondary"
+          className="h-10 hover:brightness-110 cursor-pointer bg-brand-primary text-brand-secondary"
         >
           Add to cart
         </button>
