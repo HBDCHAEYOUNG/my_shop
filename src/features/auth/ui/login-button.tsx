@@ -1,4 +1,6 @@
-import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
+import GoogleIcon from "@icons/google.svg?react";
+import KakaoIcon from "@icons/kakao.svg?react";
+import { useGoogleLogin } from "@react-oauth/google";
 import { useAuthStore } from "@store/auth-store";
 import {
   NavigationMenu,
@@ -8,8 +10,6 @@ import {
   NavigationMenuTrigger,
 } from "@ui/_shardcn/navigation-menu";
 import { postKakaoLogout } from "src/shared/services/\buse-kakao-login";
-import GoogleIcon from "@icons/google.svg?react";
-import KakaoIcon from "@icons/kakao.svg?react";
 
 export function LoginButton() {
   const { isLogin, setIsLogout, token, nickname, setIsLogin } = useAuthStore();
