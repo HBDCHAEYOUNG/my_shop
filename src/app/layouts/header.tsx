@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   const { isLogin, userId } = useAuthStore();
-
   return (
     <div className="flex items-center common-padding gap-4 py-4 border-b">
       <Link to="/" className="flex-center gap-4 ">
