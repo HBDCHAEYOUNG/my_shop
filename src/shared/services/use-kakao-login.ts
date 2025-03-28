@@ -1,6 +1,6 @@
 export const getKakaoToken = async (code: string) => {
   try {
-    const response = await fetch("/oauth/token", {
+    const response = await fetch("https://kauth.kakao.com/oauth/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
