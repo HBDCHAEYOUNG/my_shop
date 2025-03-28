@@ -6,14 +6,4 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), tailwindcss(), svgr()],
-  // server: {
-  //   proxy: {
-  //     "/oauth": {
-  //       target: "https://kauth.kakao.com",
-  //       changeOrigin: true,
-  //       secure: false,
-  //       rewrite: (path) => path.replace(/^\/oauth/, "/oauth"),
-  //     },
-  //   },
-  // },
 });
