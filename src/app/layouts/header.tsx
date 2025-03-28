@@ -7,7 +7,7 @@ import { useAuthStore } from "@store/auth-store";
 import { Link } from "react-router-dom";
 
 export function Header() {
-  const { isLogin, nickname, userId } = useAuthStore();
+  const { isLogin, userId } = useAuthStore();
 
   return (
     <div className="flex items-center common-padding gap-4 py-4 border-b">
@@ -17,9 +17,7 @@ export function Header() {
           Cherry Shop
         </span>
       </Link>
-
       <DarkmodeToggle />
-
       <Link to="/product" className="hidden sm:flex text-sm sm:text-xl">
         Products
       </Link>
@@ -33,11 +31,8 @@ export function Header() {
               <PencilIcon className="size-8" />
             </Link>
           )}
-
-          <p className="text-xl">{nickname}</p>
         </nav>
       )}
-
       <LoginButton />
     </div>
   );

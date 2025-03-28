@@ -4,7 +4,38 @@ import { useCartStore } from "@store/cart-store";
 import { Skeleton } from "@ui/_shardcn/skeleton";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+const dummyProducts = [
+  {
+    image: "https://www.svgrepo.com/show/490961/camera.svg",
+    name: "camera",
+    price: "359000",
+  },
+  {
+    image: "https://www.svgrepo.com/show/490958/headphone.svg",
+    name: "headphone",
+    price: "130000",
+  },
+  {
+    image: "https://www.svgrepo.com/show/490960/game.svg",
+    name: "gamepad",
+    price: "235000",
+  },
+  {
+    image: "https://www.svgrepo.com/show/490969/computer.svg",
+    name: "monitor",
+    price: "780000",
+  },
+  {
+    image: "https://www.svgrepo.com/show/490952/notebook.svg",
+    name: "note",
+    price: "7000",
+  },
+  {
+    image: "https://www.svgrepo.com/show/490956/doughnut.svg",
+    name: "doughnut",
+    price: "2800",
+  },
+];
 export function Detail() {
   const { id } = useParams();
 
@@ -15,7 +46,7 @@ export function Detail() {
   const [count, setCount] = useState(1);
 
   const products = JSON.parse(localStorage.getItem("products") || "[]");
-  const product = products[Number(id)];
+  const product = products[Number(id)] || dummyProducts[Number(id)];
 
   const onClickCart = () => {
     const user = JSON.parse(localStorage.getItem("user") || "{}");
