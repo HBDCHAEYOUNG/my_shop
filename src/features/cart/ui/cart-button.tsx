@@ -9,8 +9,8 @@ export function CartButton() {
   const { cartVersion } = useCartStore();
 
   const getCartCount = () => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const myCart = user.cart?.[userId] || {};
+    const cart = JSON.parse(localStorage.getItem("cart") || "{}");
+    const myCart = cart?.[userId] || {};
     return totalCount(myCart);
   };
 

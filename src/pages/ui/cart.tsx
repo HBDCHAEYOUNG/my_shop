@@ -22,8 +22,8 @@ export function Cart() {
 
   const { updateCart } = useCartStore();
 
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
-  const myCart = user.cart?.[userId] || {};
+  const cart = JSON.parse(localStorage.getItem("cart") || "{}");
+  const myCart = cart?.[userId] || {};
 
   if (!myCart)
     return (
@@ -42,7 +42,7 @@ export function Cart() {
 
   const onClickPlus = (id: string) => {
     myCart[id].count += 1;
-    storage.setItem(user, userId, myCart);
+    storage.setItem(userId, myCart);
     updateCart();
   };
 
@@ -50,13 +50,13 @@ export function Cart() {
     if (myCart[id].count === 1) return;
 
     myCart[id].count -= 1;
-    storage.setItem(user, userId, myCart);
+    storage.setItem(userId, myCart);
     updateCart();
   };
 
   const onClickDelete = (id: string) => {
     delete myCart[id];
-    storage.setItem(user, userId, myCart);
+    storage.setItem(userId, myCart);
     updateCart();
   };
 

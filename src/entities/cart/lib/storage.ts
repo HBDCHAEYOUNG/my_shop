@@ -1,10 +1,11 @@
 export const storage = {
-  setItem: (user: any, userId: number, myCart: any) => {
+  setItem: (userId: number, myCart: any) => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "{}");
     localStorage.setItem(
-      "user",
+      "cart",
       JSON.stringify({
-        ...user,
-        cart: { ...user.cart, [userId]: myCart },
+        ...cart,
+        [userId]: myCart,
       })
     );
   },

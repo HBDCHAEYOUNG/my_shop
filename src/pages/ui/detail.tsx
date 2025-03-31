@@ -49,8 +49,8 @@ export function Detail() {
   const product = products[Number(id)] || dummyProducts[Number(id)];
 
   const onClickCart = () => {
-    const user = JSON.parse(localStorage.getItem("user") || "{}");
-    const myCart = user.cart?.[userId] || {};
+    const cart = JSON.parse(localStorage.getItem("cart") || "{}");
+    const myCart = cart?.[userId] || {};
 
     if (!id) return;
 
@@ -63,7 +63,7 @@ export function Detail() {
       };
     }
 
-    storage.setItem(user, userId, myCart);
+    storage.setItem(userId, myCart);
     updateCart();
 
     alert("Added to cart");
