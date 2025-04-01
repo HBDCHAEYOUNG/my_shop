@@ -1,10 +1,12 @@
 <div align="center"><img src="https://github.com/user-attachments/assets/c84b647e-140d-4f1b-8a6a-3a7b4b54f4d6" alt="My Shop logo"></div>
 
+# 🌐 Demo Server
+
+https://cherryshop-three.vercel.app/
+
 # 🛍 My-Shop Project
 
 온라인 쇼핑몰 프로젝트입니다! 현대적인 기술 스택을 활용하여 실제 커머스 서비스처럼 구현했습니다. 🚀
-
-- 배포 링크: https://cherryshop-three.vercel.app/
 
 ## 🚀 프로젝트 소개
 
