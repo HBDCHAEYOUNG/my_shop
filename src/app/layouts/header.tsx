@@ -13,7 +13,7 @@ export function Header() {
       <Link to="/" className="flex-center gap-4 ">
         <ShopIcon className="size-8" />
         <span className="hidden sm:flex text-3xl text-brand-primary">
-          Cherry Shop
+          Mint Shop
         </span>
       </Link>
       <DarkmodeToggle />

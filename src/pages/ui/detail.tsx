@@ -46,6 +46,7 @@ export function Detail() {
   const [count, setCount] = useState(1);
 
   const products = JSON.parse(localStorage.getItem("products") || "[]");
+
   const product = products[Number(id)] || dummyProducts[Number(id)];
 
   const onClickCart = () => {
@@ -72,7 +73,7 @@ export function Detail() {
   return (
     <div className="sm:flex sm:gap-4 common-padding common-padding-top">
       <img
-        src={product.image || "/shop.svg"}
+        src={product.image}
         alt={product.name}
         onLoad={() => {
           setIsLoading(false);
