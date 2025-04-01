@@ -41,6 +41,8 @@
 <br />
 <br />
 <br />
+<br />
+<br />
 
 2. **상품 관리 및 조회** 🛍
 
@@ -49,6 +51,8 @@
 - 상품 상세 정보 제공
 - 상품 추가 기능
 
+<br />
+<br />
 <br />
 <br />
 <br />
@@ -65,14 +69,18 @@
 <br />
 <br />
 <br />
+<br />
+<br />
 
 4. **반응형 & 다크모드** 🌓
 
-<img align="right" src="(https://github.com/user-attachments/assets/9127eeb8-fed7-4d02-b36c-a9cfc655eff5" width="40%">
+<img align="right" src="https://github.com/user-attachments/assets/9127eeb8-fed7-4d02-b36c-a9cfc655eff5" width="40%">
 
 - 모바일부터 데스크탑까지 완벽한 반응형 디자인
 - 사용자 선호도에 따른 다크모드 전환 가능
 
+<br />
+<br />
 <br />
 <br />
 <br />
