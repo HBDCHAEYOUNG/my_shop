@@ -10,13 +10,12 @@ https://cherryshop-three.vercel.app/
 
 ## 🚀 프로젝트 소개
 
-관리자 모드, 상품 관리, 장바구니, 결제 시스템 등 전반적인 쇼핑몰의 핵심 기능을 구현한 프로젝트입니다.
+관리자 모드, 상품 관리, 장바구니, 소셜 로그인 등 전반적인 쇼핑몰의 핵심 기능을 구현한 프로젝트입니다.
 
 ## 🛠 사용 기술
 
 - **프론트엔드**: React, TypeScript, Zustand, React Router, FSD Architecture
 - **UI 라이브러리**: Tailwind CSS, shadcn/ui
-<!-- - **결제 시스템**: 아임포트(I'mport) -->
 - **기타**: React Hook Form, Zod
 - **스타일링**: 반응형 디자인, 다크모드 지원
 
@@ -107,14 +106,13 @@ https://cherryshop-three.vercel.app/
  ┣ 📂 app         # 애플리케이션 초기 설정 (라우팅, 글로벌 스타일, 프로바이더 등)
  ┣ 📂 pages       # 전체 페이지 컴포넌트
  ┣ 📂 widgets     # 독립적인 UI 블록 (헤더, 푸터, 장바구니 위젯 등)
- ┣ 📂 features    # 핵심 기능 구현 (상품 필터, 결제, 장바구니 등)
+ ┣ 📂 features    # 핵심 기능 구현 (상품 필터, 장바구니 등)
  ┣ 📂 entities    # 비즈니스 엔티티 (상품, 사용자, 주문 등)
  ┗ 📂 shared      # 공통 모듈 (유틸리티, API, UI 컴포넌트 등)
 ```
 
 ## 🛠 기술적 도전
 
-- 아임포트를 이용한 결제 시스템 구현
 - FSD 아키텍처를 활용한 확장 가능한 코드 구조 설계
 - TypeScript를 활용한 타입 안정성 확보
 - Zustand를 이용한 전역 상태 관리
